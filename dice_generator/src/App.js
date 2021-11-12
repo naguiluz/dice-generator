@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import './App.scss'
+import { D4, D6, D8, D10, D12, D20 } from './img/index'
 
 class App extends Component {
 	constructor(props) {
@@ -47,41 +48,47 @@ class App extends Component {
 			<>
 				<div className='App'>
 					<Form>
-              <Form.Group controlId='amount'></Form.Group>
-              <Form.Label>How many dice do you want to roll?</Form.Label>
-              <Form.Control
-                name='amount'
-                value={this.state.amount}
-                placeholder='#'
-                onChange={this.handleChange}
-              />
-              <Form.Group />
+						<Form.Group controlId='amount'></Form.Group>
+						<Form.Label>How many dice do you want to roll?</Form.Label>
+						<Form.Control
+							name='amount'
+							value={this.state.amount}
+							placeholder='#'
+							onChange={this.handleChange}
+						/>
+						<Form.Group />
 					</Form>
-					<Button variant='warning' onClick={(sides) => this.rollDice(2)}>
+					{/* <Button variant='warning' onClick={() => this.rollDice(2)}>
 						D2
-					</Button>
-					<Button variant='warning' onClick={(sides) => this.rollDice(4)}>
+					</Button> */}
+					<img src={D4} alt='four sided die' />
+					<Button variant='warning' onClick={() => this.rollDice(4)}>
 						D4
 					</Button>
-					<Button variant='warning' onClick={(sides) => this.rollDice(6)}>
+					<img src={D6} alt='six sided die' />
+					<Button variant='warning' onClick={() => this.rollDice(6)}>
 						D6
 					</Button>
-					<Button variant='warning' onClick={(sides) => this.rollDice(8)}>
+					<img src={D8} alt='eight sided die' />
+					<Button variant='warning' onClick={() => this.rollDice(8)}>
 						D8
 					</Button>
-					<Button variant='warning' onClick={(sides) => this.rollDice(10)}>
+					<img src={D10} alt='ten sided die' />
+					<Button variant='warning' onClick={() => this.rollDice(10)}>
 						D10
 					</Button>
-					<Button variant='warning' onClick={(sides) => this.rollDice(12)}>
+					<img src={D12} alt='twelve sided die' />
+					<Button variant='warning' onClick={() => this.rollDice(12)}>
 						D12
 					</Button>
-					<Button variant='warning' onClick={(sides) => this.rollDice(20)}>
+					<img src={D20} alt='twenty sided die' />
+					<Button variant='warning' onClick={() => this.rollDice(20)}>
 						D20
 					</Button>
-					<Button variant='warning' onClick={(sides) => this.rollDice(100)}>
+					<Button variant='warning' onClick={() => this.rollDice(100)}>
 						D100
 					</Button>
-          <div id='rolled dice'>You rolled: {this.state.rolledPrint}</div>
+					<div id='rolled dice'>You rolled: {this.state.rolledPrint}</div>
 					<div id='result'>Totalling: {this.state.result}</div>
 				</div>
 			</>

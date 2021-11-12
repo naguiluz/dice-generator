@@ -1,0 +1,6 @@
+export {default as D4 } from './d4.svg'
+export {default as D6} from './d6.svg'
+export {default as D8} from './d8.svg'
+export {default as D10} from './d10.svg'
+export {default as D12} from './d12.svg'
+export {default as D20} from './d20.svg'
