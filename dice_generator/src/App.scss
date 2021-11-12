@@ -1,8 +1,19 @@
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Yuji+Boku&display=swap');
 
+
+body {
+  background-color: #c5ecbe;
+  font-family: 'Yuji Boku', serif;
+}
 img {
-  width: 30px;
-  height: 30px;
+  width: 80px;
+  height: 80px;
+}
+
+.d100 {
+  width: 160px;
+  height: 160px;
 }
 
 // .App {

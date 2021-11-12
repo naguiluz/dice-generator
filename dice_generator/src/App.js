@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import './App.scss'
-import { D4, D6, D8, D10, D12, D20 } from './img/index'
+import { D4, D6, D8, D10, D12, D20, D100 } from './img/index'
 
 class App extends Component {
 	constructor(props) {
@@ -85,6 +85,7 @@ class App extends Component {
 					<Button variant='warning' onClick={() => this.rollDice(20)}>
 						D20
 					</Button>
+					<img class='d100' src={D100} alt='two ten sided die' />
 					<Button variant='warning' onClick={() => this.rollDice(100)}>
 						D100
 					</Button>
