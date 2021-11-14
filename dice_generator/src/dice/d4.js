@@ -2,14 +2,15 @@ import { Button, Collapse, Card, Form } from 'react-bootstrap'
 import React, { useState } from 'react'
 import { D4 } from '../img/index'
 
-function Four(props) {
+const Four = (props) => {
 	const [open, setOpen] = useState(false)
+	const [d4Amount, setD4Amount] = useState({
+		d4: 0
+	})
 
-	//  function handleChange(event) {
-	// 	this.setState({
-	// 		[event.target.name]: event.target.value,
-	// 	})
-	//  }
+	function handleChange(event) {
+		setD4Amount(event.target.value)
+	 }
 
 	return (
 		<>
@@ -27,14 +28,15 @@ function Four(props) {
 								<Form.Group controlId='amount'></Form.Group>
 								<Form.Label>How many dice do you want to roll?</Form.Label>
 								<Form.Control
-									name='amount'
-									value={props.amount}
+									name='d4'
+									value={d4Amount.d4}
 									placeholder='#'
-									onChange={props.handleChange}
+									onChange={handleChange}
 									type='number'
 									class='formControl'
 								/>
 								<Form.Group />
+								{/* <Button type='submit' onClick={() => this.handleChange()}>D4</Button> */}
 							</Form>
 						</Card>
 					</div>

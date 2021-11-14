@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form'
 import './App.scss'
 import { D4, D6, D8, D10, D12, D20, D100 } from './img/index'
 import Mix  from './mixedDice'
+import { Four, Six, Eight, Ten, Twelve, Twenty, Hundred } from './dice/index'
 
 class App extends Component {
 	constructor(props) {
@@ -51,7 +52,7 @@ class App extends Component {
 		return (
 			<>
 				<div className='App'>
-					<Form class='form'>
+					<Form class='form' className='d-flex flex-column'>
 						<Form.Group controlId='amount'></Form.Group>
 						<Form.Label>How many dice do you want to roll?</Form.Label>
 						<Form.Control
@@ -64,6 +65,22 @@ class App extends Component {
 						/>
 
 						<Form.Group />
+						<Button onClick={() => this.rollDice(4)}>
+							<Four
+								name='amount'
+								value={this.state.amount}
+								placeholder='#'
+								onChange={this.handleChange}
+								type='number'
+								class='formControl'
+							/>
+						</Button>
+						<Six onClick={() => this.rollDice(6)} />
+						<Eight onClick={() => this.rollDice(8)} />
+						<Ten onClick={() => this.rollDice(10)} />
+						<Twelve onClick={() => this.rollDice(12)} />
+						<Twenty onClick={() => this.rollDice(20)} />
+						<Hundred onClick={() => this.rollDice(100)} />
 						<Button variant='warning' onClick={() => this.rollDice(4)}>
 							D4
 							<img src={D4} alt='four sided die' />
@@ -99,12 +116,12 @@ class App extends Component {
 							<img class='d100' src={D100} alt='two ten sided die' />
 						</Button>
 					</Form>
-					
+
 					<div id='rolled dice'>You rolled: {this.state.rolledPrint}</div>
 					<div id='result'>Totalling: {this.state.result}</div>
 				</div>
 				{/* multiple sides test */}
-				<Mix />
+				{/* <Mix /> */}
 			</>
 		)
 	}
