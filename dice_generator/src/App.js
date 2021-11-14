@@ -52,7 +52,7 @@ class App extends Component {
 		return (
 			<>
 				<div className='App'>
-					<Form class='form' className='d-flex flex-column'>
+					<Form class='form'>
 						<Form.Group controlId='amount'></Form.Group>
 						<Form.Label>How many dice do you want to roll?</Form.Label>
 						<Form.Control
@@ -65,7 +65,7 @@ class App extends Component {
 						/>
 
 						<Form.Group />
-						<Button onClick={() => this.rollDice(4)}>
+						{/* <Button onClick={() => this.rollDice(4)}>
 							<Four
 								name='amount'
 								value={this.state.amount}
@@ -80,7 +80,7 @@ class App extends Component {
 						<Ten onClick={() => this.rollDice(10)} />
 						<Twelve onClick={() => this.rollDice(12)} />
 						<Twenty onClick={() => this.rollDice(20)} />
-						<Hundred onClick={() => this.rollDice(100)} />
+						<Hundred onClick={() => this.rollDice(100)} /> */}
 						<Button variant='warning' onClick={() => this.rollDice(4)}>
 							D4
 							<img src={D4} alt='four sided die' />
