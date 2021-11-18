@@ -11,13 +11,22 @@ class App extends Component {
 		super(props)
 		this.state = {
 			result: 0,
-      amount: 1,
-      numsRolled: '',
-      rolledPrint: ''
+			amount: 1,
+			numsRolled: '',
+			rolledPrint: '',
+			d4Amount: 0,
+			
 		}
+		this.handleChange = this.handleChange.bind(this)
+		this.handleD4Change = this.handleD4Change = this.handleD4Change.bind(this)
 		// this.rollDice = this.rollDice.bind(this)
 	}
 
+	handleD4Change(d4Amount) {
+		this.setState({
+			d4Amount: d4Amount
+		})
+	}
   handleChange = (event) =>
     this.setState({
       [event.target.name]:event.target.value
@@ -48,6 +57,7 @@ class App extends Component {
 
 	render() {
 		// let result = this.rollDice()
+		
 	
 		return (
 			<>
@@ -65,17 +75,17 @@ class App extends Component {
 						/>
 
 						<Form.Group />
-						{/* <Button onClick={() => this.rollDice(4)}>
+						{/* <Button onClick={() => this.rollDice(4)}> */}
 							<Four
 								name='amount'
-								value={this.state.amount}
+								d4Amount={this.state.d4Amount}
 								placeholder='#'
-								onChange={this.handleChange}
+								onD4Change={this.handleD4Change}
 								type='number'
 								class='formControl'
 							/>
-						</Button>
-						<Six onClick={() => this.rollDice(6)} />
+						{/* </Button> */}
+						{/* <Six onClick={() => this.rollDice(6)} />
 						<Eight onClick={() => this.rollDice(8)} />
 						<Ten onClick={() => this.rollDice(10)} />
 						<Twelve onClick={() => this.rollDice(12)} />
