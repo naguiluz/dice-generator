@@ -15,50 +15,94 @@ class App extends Component {
 			numsRolled: '',
 			rolledPrint: '',
 			d4Amount: 0,
-			
+			d6Amount: 0,
+			d8Amount: 0,
+			d10Amount: 0,
+			d12Amount: 0,
+			d20Amount: 0,
+			d100Amount: 0,
 		}
-		this.handleChange = this.handleChange.bind(this)
-		this.handleD4Change = this.handleD4Change = this.handleD4Change.bind(this)
-		// this.rollDice = this.rollDice.bind(this)
+		// this.handleChange = this.handleChange.bind(this)
+
+		this.handleD4Change = this.handleD4Change.bind(this)
+		this.handleD6Change = this.handleD6Change.bind(this)
+		this.handleD8Change = this.handleD8Change.bind(this)
+		this.handleD10Change = this.handleD10Change.bind(this)
+		this.handleD12Change = this.handleD12Change.bind(this)
+		this.handleD20Change = this.handleD20Change.bind(this)
+		this.handleD100Change = this.handleD100Change.bind(this)
+		this.rollDice = this.rollDice.bind(this)
 	}
 
 	handleD4Change(d4Amount) {
 		this.setState({
-			d4Amount: d4Amount
+			d4Amount: d4Amount,
 		})
 	}
-  handleChange = (event) =>
-    this.setState({
-      [event.target.name]:event.target.value
-    })
+
+	handleD6Change(d6Amount) {
+		this.setState({
+			d6Amount: d6Amount,
+		})
+	}
+
+	handleD8Change(d8Amount) {
+		this.setState({
+			d8Amount: d8Amount,
+		})
+	}
+
+	handleD10Change(d10Amount) {
+		this.setState({
+			d10Amount: d10Amount,
+		})
+	}
+
+	handleD12Change(d12Amount) {
+		this.setState({
+			d12Amount: d12Amount,
+		})
+	}
+
+	handleD20Change(d20Amount) {
+		this.setState({
+			d20Amount: d20Amount,
+		})
+	}
+
+	handleD100Change(d100Amount) {
+		this.setState({
+			d100Amount: d100Amount,
+		})
+	}
+	// handleChange = (event) =>
+	//   this.setState({
+	//     [event.target.name]:event.target.value
+	//   })
 
 	rollDice = (sides) => {
 		let numsRolled = []
-    let result = 0
-    for (let i = 0; i < this.state.amount; i++) {
+		let result = 0
+		for (let i = 0; i < this.state.amount; i++) {
 			numsRolled.push(Math.ceil(Math.random() * sides))
-    }
-    for (let i = 0; i < numsRolled.length; i++) {
-      result += numsRolled[i]
-    }
+		}
+		for (let i = 0; i < numsRolled.length; i++) {
+			result += numsRolled[i]
+		}
 		console.log(`You rolled ${numsRolled.join()}`)
-    console.log(`Giving a total of ${result}`)
-    let rolledPrint = numsRolled.join(' + ')
-   
-  
+		console.log(`Giving a total of ${result}`)
+		let rolledPrint = numsRolled.join(' + ')
+
 		this.setState({
 			result: result,
-      numsRolled: numsRolled,
-      rolledPrint: rolledPrint
+			numsRolled: numsRolled,
+			rolledPrint: rolledPrint,
 		})
 	}
-	
-	
 
 	render() {
 		// let result = this.rollDice()
-		
-	
+
 		return (
 			<>
 				<div className='App'>
@@ -76,14 +120,69 @@ class App extends Component {
 
 						<Form.Group />
 						{/* <Button onClick={() => this.rollDice(4)}> */}
-							<Four
-								name='amount'
-								d4Amount={this.state.d4Amount}
-								placeholder='#'
-								onD4Change={this.handleD4Change}
-								type='number'
-								class='formControl'
-							/>
+						<Four
+							name='amount'
+							d4Amount={this.state.d4Amount}
+							placeholder='#'
+							onD4Change={this.handleD4Change}
+							type='number'
+							class='formControl'
+							onRollDice={() => this.rollDice(4)}
+						/>
+						<Six
+							name='amount'
+							d6Amount={this.state.d6Amount}
+							placeholder='#'
+							onD6Change={this.handleD6Change}
+							type='number'
+							class='formControl'
+							onRollDice={() => this.rollDice(6)}
+						/>
+						<Eight
+							name='amount'
+							d8Amount={this.state.d8Amount}
+							placeholder='#'
+							onD8Change={this.handleD8Change}
+							type='number'
+							class='formControl'
+							onRollDice={() => this.rollDice(8)}
+						/>
+						<Ten
+							name='amount'
+							d10Amount={this.state.d10Amount}
+							placeholder='#'
+							onD10Change={this.handleD10Change}
+							type='number'
+							class='formControl'
+							onRollDice={() => this.rollDice(10)}
+						/>
+						<Twelve
+							name='amount'
+							d12Amount={this.state.d12Amount}
+							placeholder='#'
+							onD12Change={this.handleD12Change}
+							type='number'
+							class='formControl'
+							onRollDice={() => this.rollDice(12)}
+						/>
+						<Twenty
+							name='amount'
+							d20Amount={this.state.d20Amount}
+							placeholder='#'
+							onD20Change={this.handleD20Change}
+							type='number'
+							class='formControl'
+							onRollDice={() => this.rollDice(20)}
+						/>
+						<Hundred
+							name='amount'
+							d100Amount={this.state.d100Amount}
+							placeholder='#'
+							onD100Change={this.handleD100Change}
+							type='number'
+							class='formControl'
+							onRollDice={() => this.rollDice(100)}
+						/>
 						{/* </Button> */}
 						{/* <Six onClick={() => this.rollDice(6)} />
 						<Eight onClick={() => this.rollDice(8)} />
@@ -135,7 +234,6 @@ class App extends Component {
 			</>
 		)
 	}
-	
 }
 
 export default App;

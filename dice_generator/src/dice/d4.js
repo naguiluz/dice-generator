@@ -1,14 +1,11 @@
-import { Button, Collapse, Card, Form } from 'react-bootstrap'
-import React, { useState } from 'react'
+import { Button, Card, Form } from 'react-bootstrap'
+import React from 'react'
 import { D4 } from '../img/index'
 
 
 class Four extends React.Component {
 	constructor(props) {
 		super(props)
-		// this.state = {
-		// 	d4Amount: 0
-		// }
 		this.handleChange = this.handleChange.bind(this)
 	}
 
@@ -16,27 +13,32 @@ class Four extends React.Component {
 		this.props.onD4Change(event.target.value)
 	}
 		
-
+	rollDice(sides) {
+		this.props.onRollDice(sides)
+	}
 
 	render() {
 		return (
 			<>
 				<Card body style={{ width: '400px' }}>
- 					<Form class='form'>
- 					<Form.Group controlId='amount'></Form.Group>
- 						<Form.Label>How many dice do you want to roll?</Form.Label>								
-						 <Form.Control
-									name='d4'
-									d4Amount={this.props.d4Amount}
-									placeholder='#'
-									onChange={this.handleChange}
-									type='number'
-									class='formControl'
-								/>
-								<Form.Group />
-							</Form>
-						</Card>
-			
+					<Form class='form'>
+						<Form.Group controlId='amount'></Form.Group>
+						<Form.Label>How many dice do you want to roll?</Form.Label>
+						<Form.Control
+							name='d4'
+							d4Amount={this.props.d4Amount}
+							placeholder='#'
+							onChange={this.handleChange}
+							type='number'
+							class='formControl'
+						/>
+						<Form.Group />
+					</Form>
+					<Button variant='warning' onClick={() => this.rollDice(4)}>
+						D4
+						<img src={D4} alt='four sided die' />
+					</Button>
+				</Card>
 			</>
 		)
 	}
