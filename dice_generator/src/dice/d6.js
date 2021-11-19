@@ -31,6 +31,7 @@ class Six extends React.Component {
 							onChange={this.handleChange}
 							type='number'
 							class='formControl'
+							min='0'
 						/>
 						<Form.Group />
 					</Form>
