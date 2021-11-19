@@ -101,11 +101,10 @@ class App extends Component {
 		})
 	}
 
-	rollMultipleDice = (sides) => {
+	rollMultipleDice = () => {
 		let total = 0
 		let diceRolled = []
 		for (let i = 0; i < this.state.d4Amount; i++) {
-			
 			diceRolled.push(Math.ceil(Math.random() * 4))
 		}
 		for (let i = 0; i < this.state.d6Amount; i++) {
@@ -265,7 +264,7 @@ class App extends Component {
 					</Form>
 
 					<div id='rolled dice'>You rolled: {this.state.rolledPrint}</div>
-					<div id='result'>Totalling: {this.state.result}</div>
+					<div id='result'>Totaling: {this.state.result}</div>
 				</div>
 				{/* multiple sides test */}
 				{/* <Mix /> */}
